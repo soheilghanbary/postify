@@ -2,6 +2,7 @@ import '@/assets/app.css'
 import { Header } from '@/components/layouts/Header'
 import Providers from '@/components/providers'
 import { siteConfig } from '@/config/site'
+import { auth } from '@/server/auth'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import type { PropsWithChildren } from 'react'
@@ -23,7 +24,8 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const session = await auth()
   return (
     <html lang="en" className={font.className} suppressHydrationWarning>
       <head>
@@ -35,7 +37,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         />
       </head>
       <body>
-        <Providers>
+        <Providers session={session}>
           <Header />
           <div className="container mx-auto p-4">{children}</div>
         </Providers>

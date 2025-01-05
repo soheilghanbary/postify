@@ -24,7 +24,9 @@ export const PostCard = ({
     <div className="flex rounded-lg border bg-card">
       <PostVote postId={id} points={points} hasVoted={hasVoted} />
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <h2 className="line-clamp-1 font-semibold text-base/normal">{title}</h2>
+        <h2 className="line-clamp-1 font-semibold text-sm/6 md:text-base/normal">
+          {title}
+        </h2>
         <p className="line-clamp-2 text-foreground/85 text-xs/5">{content}</p>
         <div className="flex flex-wrap gap-4">
           <div className="flex items-center gap-1 text-muted-foreground text-xs/6">

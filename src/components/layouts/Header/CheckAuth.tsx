@@ -18,12 +18,7 @@ export const CheckAuth = async () => {
   return session ? (
     <div className="flex items-center gap-2">
       <ModeToggle />
-      <Button
-        fullRounded
-        size={'icon'}
-        variant={'ghost'}
-        className="[&_svg]:size-5"
-      >
+      <Button fullRounded size={'icon'} variant={'ghost'}>
         <Notification02Icon />
       </Button>
       <Button asChild fullRounded>

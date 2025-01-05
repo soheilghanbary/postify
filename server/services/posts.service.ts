@@ -24,7 +24,7 @@ export async function searchPosts(query: string) {
     orderBy: {
       createdAt: 'desc',
     },
-    take: 5,
+    take: 10,
     include: {
       votes: {
         select: {

@@ -9,7 +9,7 @@ export const SearchField = () => {
   const [text, setText] = useState(query || '')
 
   return (
-    <div className="relative flex w-full max-w-sm items-center gap-4">
+    <div className="relative hidden w-full max-w-sm items-center gap-4 md:flex">
       <Search01Icon className="absolute left-3 size-4 text-foreground/55" />
       <Input
         type="text"
