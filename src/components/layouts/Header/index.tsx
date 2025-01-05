@@ -8,7 +8,9 @@ export const Header = () => {
     <header className="sticky top-0 z-10 border-border border-b bg-card">
       <nav className="container flex items-center justify-between gap-4 px-4 py-2 lg:py-4">
         <Logo />
-        <SearchField />
+        <Suspense>
+          <SearchField />
+        </Suspense>
         <Suspense fallback={<CheckAuthLoader />}>
           <CheckAuth />
         </Suspense>

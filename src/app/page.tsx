@@ -1,6 +1,7 @@
 import { FilterPostList } from '@/components/features/FilterPostList'
-import { AllPosts, PostList } from '@/components/features/PostList'
-import { TopUsers, UserList } from '@/components/features/UserList'
+import { AllPosts } from '@/components/features/PostList'
+import { TopUsers } from '@/components/features/UserList'
+import { Suspense } from 'react'
 
 export default function Page() {
   return (
@@ -8,8 +9,9 @@ export default function Page() {
       <FilterPostList />
       <div className="grid grid-cols-3 gap-4">
         <div className="col-span-2">
-          <AllPosts />
-          {/* <PostList posts={[]} /> */}
+          <Suspense>
+            <AllPosts />
+          </Suspense>
         </div>
         <div className="col-span-1">
           <TopUsers />

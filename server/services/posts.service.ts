@@ -11,12 +11,6 @@ export function searchPosts(query: string) {
           },
         },
         {
-          content: {
-            contains: query,
-            mode: 'insensitive',
-          },
-        },
-        {
           url: {
             contains: query,
             mode: 'insensitive',
