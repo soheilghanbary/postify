@@ -1,6 +1,6 @@
 'use client'
 import { LoadingIcon } from '@/components/common/icons'
-import { Github01Icon, GoogleIcon } from '@/components/common/icons/social'
+import { GoogleIcon } from '@/components/common/icons/social'
 import { Button } from '@/components/ui/button'
 import { onSignIn } from '@/server/actions/auth.action'
 import type React from 'react'
@@ -22,33 +22,18 @@ export const OAuth = () => {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4">
-      <Button
-        name="google"
-        disabled={pending}
-        variant={'secondary'}
-        onClick={handleLogin}
-      >
-        {loading.google ? (
-          <LoadingIcon className="fill-primary" />
-        ) : (
-          <GoogleIcon />
-        )}
-        Google
-      </Button>
-      <Button
-        name="github"
-        disabled={pending}
-        variant={'secondary'}
-        onClick={handleLogin}
-      >
-        {loading.github ? (
-          <LoadingIcon className="fill-primary" />
-        ) : (
-          <Github01Icon />
-        )}
-        GitHub
-      </Button>
-    </div>
+    <Button
+      name="google"
+      disabled={pending}
+      variant={'secondary'}
+      onClick={handleLogin}
+    >
+      {loading.google ? (
+        <LoadingIcon className="fill-primary" />
+      ) : (
+        <GoogleIcon />
+      )}
+      Google
+    </Button>
   )
 }
