@@ -7,6 +7,7 @@ import {
 import { Separator } from '@/components/ui/separator'
 import type { PostProps } from '@/types'
 import { PostVote } from '../Post/PostVote'
+import { fromNow } from '@/lib/utils'
 
 export const PostCard = ({
   id,
@@ -30,7 +31,7 @@ export const PostCard = ({
         <div className="flex flex-wrap gap-4">
           <div className="flex items-center gap-1 text-muted-foreground text-xs/6">
             <Clock01Icon className="size-4" />
-            <span>{new Date(createdAt).toLocaleDateString()}</span>
+            <span>{fromNow(createdAt)}</span>
           </div>
           <a
             href={url}
