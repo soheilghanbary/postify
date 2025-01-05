@@ -3,13 +3,14 @@ import {
   BubbleChatIcon,
   Clock01Icon,
   Link02Icon,
-  TriangleIcon,
   User03Icon,
 } from '@/components/common/icons'
 import { Separator } from '@/components/ui/separator'
 import type { PostProps } from '@/types'
+import { PostVote } from '../Post/PostVote'
 
 export const PostCard = ({
+  id,
   title,
   content,
   url,
@@ -17,18 +18,11 @@ export const PostCard = ({
   commentsCount,
   points,
   user,
+  hasVoted,
 }: PostProps) => {
   return (
     <div className="flex rounded-lg border bg-card">
-      <div className="flex flex-col items-center gap-1.5 border-r p-4 text-center">
-        <button type="button" className="text-muted-foreground">
-          <TriangleIcon className="size-3.5 text-current" />
-        </button>
-        <span className="font-medium text-foreground/85 text-xs">{points}</span>
-        <button type="button" className="rotate-180 text-muted-foreground">
-          <TriangleIcon className="size-3.5 text-current" />
-        </button>
-      </div>
+      <PostVote postId={id} points={points} hasVoted={hasVoted} />
       <div className="flex flex-1 flex-col gap-2 p-4">
         <h2 className="line-clamp-1 font-semibold text-base/normal">{title}</h2>
         <p className="line-clamp-2 text-foreground/85 text-xs/5">{content}</p>

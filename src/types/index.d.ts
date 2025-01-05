@@ -2,6 +2,11 @@ import type { Prisma } from '@prisma/client'
 
 type PostProps = Prisma.PostGetPayload<{
   include: {
+    votes: {
+      select: {
+        userId: true
+      }
+    }
     user: {
       select: {
         id: true
@@ -10,7 +15,7 @@ type PostProps = Prisma.PostGetPayload<{
       }
     }
   }
-}>
+}> & { hasVoted: boolean }
 
 type CurrentUserProps = Prisma.UserGetPayload<{
   include: {

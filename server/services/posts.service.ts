@@ -1,3 +1,4 @@
+import { auth } from "../auth";
 import { prisma } from "../db";
 
 export function searchPosts(query: string) {
@@ -34,13 +35,20 @@ export function searchPosts(query: string) {
   })
 }
 
-export function getPosts() {
-  return prisma.post.findMany({
+export async function getPosts() {
+  const session = await auth()
+  const userId = session?.user?.id
+  const posts = await prisma.post.findMany({
     orderBy: {
       createdAt: 'desc',
     },
     take: 10,
     include: {
+      votes: {
+        select: {
+          userId: true,
+        }
+      },
       user: {
         select: {
           id: true,
@@ -50,6 +58,10 @@ export function getPosts() {
       }
     }
   })
+  return posts.map((post) => ({
+    ...post,
+    hasVoted: post.votes.some((vote) => vote.userId === userId),
+  }))
 }
 
 export function getPost(id: string) {
@@ -58,4 +70,11 @@ export function getPost(id: string) {
       id,
     },
   })
+}
+
+export async function handlePostVote(postId: string, action: 'upvote' | 'downvote') {
+  return await prisma.post.update({
+    where: { id: postId },
+    data: { points: action === 'upvote' ? { increment: 1 } : { decrement: 1 } },
+  });
 }

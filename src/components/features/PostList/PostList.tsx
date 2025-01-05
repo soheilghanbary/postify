@@ -1,6 +1,6 @@
 import { LoadingIcon } from '@/components/common/icons'
+import { PostCard } from '@/components/features/Post/PostCard'
 import type { PostProps } from '@/types'
-import { PostCard } from './PostCard'
 
 type Props = {
   posts: PostProps[]
