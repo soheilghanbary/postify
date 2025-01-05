@@ -37,7 +37,7 @@
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%; 
+    --popover-foreground: 0 0% 98%;
     --primary: 142.1 70.6% 45.3%;
     --primary-foreground: 144.9 80.4% 10%;
     --secondary: 240 3.7% 15.9%;
@@ -61,7 +61,7 @@
 
 @layer base {
   * {
-    @apply border-border select-none outline-none;
+    @apply border-border outline-none;
   }
   body {
     @apply bg-muted/40 dark:bg-black text-foreground;
@@ -69,5 +69,10 @@
 }
 
 body::-webkit-scrollbar {
-  display: none;;
+  display: none;
+}
+
+::selection {
+  color: hsl(var(--primary-foreground));
+  background: hsl(var(--primary));
 }

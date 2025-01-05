@@ -1,4 +1,5 @@
 import '@/assets/app.css'
+import { Footer } from '@/components/layouts/Footer'
 import { Header } from '@/components/layouts/Header'
 import Providers from '@/components/providers'
 import { siteConfig } from '@/config/site'
@@ -39,7 +40,8 @@ export default async function RootLayout({ children }: PropsWithChildren) {
       <body>
         <Providers session={session}>
           <Header />
-          <div className="container mx-auto p-4">{children}</div>
+          <div className="container mx-auto min-h-screen p-4">{children}</div>
+          <Footer />
         </Providers>
       </body>
     </html>
