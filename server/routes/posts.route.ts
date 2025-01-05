@@ -12,8 +12,7 @@ export const postsRoutes = new Hono()
   })
   .get('/:id', async (c) => {
     const postId = c.req.param('id');
-    const post = await prisma.post.findUnique({ where: { id: postId } });
-    if (!post) return c.json({ status: 'error', message: 'Post not found' }, 404);
+    const post = await prisma.post.findUnique({ where: { id: postId }, include: { user: { select: { id: true, name: true, image: true } } } });
     return c.json(post);
   })
   .post('/', async (c) => {

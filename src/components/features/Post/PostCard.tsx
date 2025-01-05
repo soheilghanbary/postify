@@ -5,9 +5,10 @@ import {
   User03Icon,
 } from '@/components/common/icons'
 import { Separator } from '@/components/ui/separator'
-import type { PostProps } from '@/types'
-import { PostVote } from '../Post/PostVote'
 import { fromNow } from '@/lib/utils'
+import type { PostProps } from '@/types'
+import Link from 'next/link'
+import { PostVote } from '../Post/PostVote'
 
 export const PostCard = ({
   id,
@@ -24,9 +25,11 @@ export const PostCard = ({
     <div className="flex rounded-lg border bg-card">
       <PostVote postId={id} points={points} hasVoted={hasVoted} />
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <h2 className="line-clamp-1 font-semibold text-sm/6 md:text-base/normal">
-          {title}
-        </h2>
+        <Link href={`/p/${id}`}>
+          <h2 className="line-clamp-1 font-semibold text-sm/6 md:text-base/normal">
+            {title}
+          </h2>
+        </Link>
         <p className="line-clamp-2 text-foreground/85 text-xs/5">{content}</p>
         <div className="flex flex-wrap gap-4">
           <div className="flex items-center gap-1 text-muted-foreground text-xs/6">

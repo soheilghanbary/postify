@@ -1,6 +1,6 @@
 import { api } from '@/lib/api'
 import type { PostProps } from '@/types'
-import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useQueryState } from 'nuqs'
 
 export const useAllPosts = () => {
@@ -81,3 +81,16 @@ export const useVotePost = () => {
     },
   });
 };
+
+export const usePost = (id: string) => {
+  return useQuery({
+    queryKey: ['post', id],
+    queryFn: async () => {
+      const res = await fetch(`/api/posts/${id}`)
+      return await res.json() as Promise<PostProps>
+    },
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  })
+}
