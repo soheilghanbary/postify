@@ -46,7 +46,6 @@ export function AuthModal({ initialTrigger }: Props) {
             <DialogTitle>Sign In your Account</DialogTitle>
             <DialogDescription>to use more features</DialogDescription>
           </DialogHeader>
-          <TextLine text="Sign In with" />
           <OAuth />
         </DialogContent>
       </Dialog>
@@ -62,7 +61,6 @@ export function AuthModal({ initialTrigger }: Props) {
           <DrawerDescription>to use more features</DrawerDescription>
         </DrawerHeader>
         <div className="space-y-4 px-4">
-          <TextLine text="Sign In with" />
           <OAuth />
         </div>
         <DrawerFooter>

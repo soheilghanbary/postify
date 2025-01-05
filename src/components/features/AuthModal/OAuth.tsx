@@ -27,13 +27,14 @@ export const OAuth = () => {
       disabled={pending}
       variant={'secondary'}
       onClick={handleLogin}
+      className="w-full"
     >
       {loading.google ? (
         <LoadingIcon className="fill-primary" />
       ) : (
         <GoogleIcon />
       )}
-      Google
+      Sign In with Google
     </Button>
   )
 }
