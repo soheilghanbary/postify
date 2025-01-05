@@ -25,7 +25,7 @@ export const PostCard = ({
     <div className="flex rounded-lg border bg-card">
       <PostVote postId={id} points={points} hasVoted={hasVoted} />
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <Link href={`/p/${id}`}>
+        <Link href={`/p/${id}`} shallow prefetch>
           <h2 className="line-clamp-1 font-semibold text-sm/6 md:text-base/normal">
             {title}
           </h2>

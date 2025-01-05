@@ -4,7 +4,6 @@ import {
   Linkedin01Icon,
   NewTwitterIcon,
 } from '@/components/common/icons/social'
-import { ModeToggle } from '@/components/common/mode-toggle'
 
 export const SocialIcons = () => (
   <div className="flex items-center gap-6">
@@ -33,7 +32,7 @@ export const SocialIcons = () => (
 
 export const Footer = () => {
   return (
-    <footer className="mt-8 mb-14 border-t bg-card md:mb-0">
+    <footer className="mt-4 border-t bg-card">
       <div className="container flex flex-col items-center justify-between gap-4 p-4 sm:flex-row">
         <p className="text-xs">
           Developed by{' '}

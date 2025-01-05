@@ -12,7 +12,7 @@ export const PostListSkeleton = () => (
 
 export const PostList = ({ posts }: Props) => {
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-2">
       {posts.map((p, i) => (
         <PostCard key={i} {...p} />
       ))}
