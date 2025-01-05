@@ -30,7 +30,7 @@ const Post = () => {
   if (!data) return <p>Post not Found</p>
 
   return (
-    <div className="mx-auto flex max-w-2xl flex-col gap-4">
+    <div className="mx-auto flex max-w-2xl flex-col gap-4 rounded-lg border bg-card p-4">
       <BackButton />
       <h1 className="motion-preset-fade font-extrabold text-2xl">
         {data.title}
@@ -52,7 +52,7 @@ const Post = () => {
           <BubbleChatIcon className="size-4" />
           <span>{data.commentsCount} comments</span>
         </div>
-        <div
+        <a
           href={data.url}
           target="_blank"
           rel="noreferrer"
@@ -60,9 +60,9 @@ const Post = () => {
         >
           <Link02Icon className="size-4" />
           <span className="line-clamp-1 w-64 overflow-hidden text-ellipsis">
-            Website
+            {data.url}
           </span>
-        </div>
+        </a>
       </div>
     </div>
   )
