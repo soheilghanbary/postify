@@ -42,7 +42,7 @@ export const useVotePost = () => {
     // Optimistic update
     onMutate: async (data) => {
       // Cancel any outgoing refetches to avoid overwriting optimistic update
-      await queryClient.cancelQueries({ queryKey: ['posts'] });
+      await queryClient.cancelQueries({ queryKey: ['posts', query] });
       // Snapshot of the current state before mutation
       const previousPosts = queryClient.getQueryData(['posts', query]);
       // Optimistically update the UI

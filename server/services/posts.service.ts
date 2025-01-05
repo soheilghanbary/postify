@@ -1,8 +1,10 @@
 import { auth } from "../auth";
 import { prisma } from "../db";
 
-export function searchPosts(query: string) {
-  return prisma.post.findMany({
+export async function searchPosts(query: string) {
+  const session = await auth()
+  const userId = session?.user?.id
+  const posts = await prisma.post.findMany({
     where: {
       OR: [
         {
@@ -24,6 +26,11 @@ export function searchPosts(query: string) {
     },
     take: 5,
     include: {
+      votes: {
+        select: {
+          userId: true,
+        }
+      },
       user: {
         select: {
           id: true,
@@ -33,6 +40,10 @@ export function searchPosts(query: string) {
       }
     }
   })
+  return posts.map((post) => ({
+    ...post,
+    hasVoted: post.votes.some((vote) => vote.userId === userId),
+  }))
 }
 
 export async function getPosts() {
