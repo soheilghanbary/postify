@@ -6,7 +6,8 @@ import { getPosts, searchPosts } from '../services/posts.service';
 export const postsRoutes = new Hono()
   .get('/', async (c) => {
     const query = c.req.query('q');
-    const posts = query ? await searchPosts(query) : await getPosts();
+    const page = Number.parseInt(c.req.query('page') || '0');
+    const posts = query ? await searchPosts(query) : await getPosts(page);
     return c.json(posts);
   })
   .get('/:id', async (c) => {

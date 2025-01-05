@@ -1,25 +1,32 @@
 import { api } from '@/lib/api'
 import type { PostProps } from '@/types'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useQueryState } from 'nuqs'
 
 export const useAllPosts = () => {
   const [query] = useQueryState('q')
-  return useQuery({
+
+  return useInfiniteQuery({
+    initialPageParam: 1,
     queryKey: ['posts', query],
-    queryFn: async () => {
-      if (query) {
-        const res = await fetch(`/api/posts?q=${query}`)
-        return (await res.json()) as Promise<PostProps[]>
-      }
-      const res = await fetch('/api/posts')
+    queryFn: async ({ pageParam }) => {
+      // Construct the query URL
+      const url = query
+        ? `/api/posts?q=${query}&page=${pageParam}`
+        : `/api/posts?page=${pageParam}`
+
+      const res = await fetch(url)
       return (await res.json()) as Promise<PostProps[]>
+    },
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.length > 1 ? allPages.length + 1 : undefined
     },
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
   })
 }
+
 
 export const useAddPost = () => {
   return useMutation({
@@ -43,21 +50,33 @@ export const useVotePost = () => {
     onMutate: async (data) => {
       // Cancel any outgoing refetches to avoid overwriting optimistic update
       await queryClient.cancelQueries({ queryKey: ['posts', query] });
+
       // Snapshot of the current state before mutation
       const previousPosts = queryClient.getQueryData(['posts', query]);
-      // Optimistically update the UI
-      queryClient.setQueryData(['posts', query], (oldPosts: any) => {
-        return oldPosts.map((post: any) =>
-          post.id === data.postId
-            ? {
-              ...post,
-              hasVoted: !post.hasVoted, // Toggle vote
-              votes: post.hasVoted ? post.votes - 1 : post.votes + 1, // Adjust vote count
-              points: post.hasVoted ? post.points - 1 : post.points + 1, // Adjust point count
-            }
-            : post
-        );
-      });
+
+      if (previousPosts) {
+        // Destructure the previous posts and pagination information
+        const { pageParams, pages } = previousPosts as { pageParams: number[], pages: any[] };
+
+        // Optimistically update the pages of posts
+        queryClient.setQueryData(['posts', query], {
+          pageParams,
+          pages: pages.map((page: any) => {
+            // Update the posts in the current page
+            return page.map((post: any) =>
+              post.id === data.postId
+                ? {
+                  ...post,
+                  hasVoted: !post.hasVoted, // Toggle vote
+                  votes: post.hasVoted ? post.votes - 1 : post.votes + 1, // Adjust vote count
+                  points: post.hasVoted ? post.points - 1 : post.points + 1, // Adjust point count
+                }
+                : post
+            );
+          }),
+        });
+      }
+
       return { previousPosts };
     },
   });

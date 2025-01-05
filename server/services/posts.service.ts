@@ -46,34 +46,40 @@ export async function searchPosts(query: string) {
   }))
 }
 
-export async function getPosts() {
+export async function getPosts(page: number) {
   const session = await auth()
   const userId = session?.user?.id
+
+  // محاسبه skip برای صفحه‌بندی
   const posts = await prisma.post.findMany({
     orderBy: {
       createdAt: 'desc',
     },
-    take: 10,
+    take: 5, // تعداد پست‌ها در هر صفحه
+    skip: (page - 1) * 5, // محاسبه skip بر اساس شماره صفحه
     include: {
       votes: {
         select: {
           userId: true,
-        }
+        },
       },
       user: {
         select: {
           id: true,
           name: true,
           image: true,
-        }
-      }
-    }
+        },
+      },
+    },
   })
+
+  // اضافه کردن ویژگی hasVoted به هر پست
   return posts.map((post) => ({
     ...post,
     hasVoted: post.votes.some((vote) => vote.userId === userId),
   }))
 }
+
 
 export function getPost(id: string) {
   return prisma.post.findUnique({
