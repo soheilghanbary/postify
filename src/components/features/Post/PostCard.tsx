@@ -1,5 +1,4 @@
 import {
-  Bookmark02Icon,
   BubbleChatIcon,
   Clock01Icon,
   Link02Icon,
@@ -54,10 +53,6 @@ export const PostCard = ({
           <div className="flex items-center gap-1 text-muted-foreground text-xs/6">
             <BubbleChatIcon className="size-4" />
             <span>{commentsCount} comments</span>
-          </div>
-          <div className="flex items-center gap-1 text-muted-foreground text-xs/6">
-            <Bookmark02Icon className="size-4" />
-            <span>Save</span>
           </div>
         </div>
       </div>
