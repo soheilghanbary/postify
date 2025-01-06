@@ -9,7 +9,7 @@ type Props = {
 
 export const UserListSkeleton = () =>
   Array.from({ length: 3 }).map((_, i) => (
-    <div key={i} className="my-3 flex items-center justify-between gap-3">
+    <div key={i} className="my-3 flex items-center justify-between gap-3.5">
       <Skeleton className="size-10 rounded-full" />
       <Skeleton className="h-5 w-2/4 rounded-full" />
       <Skeleton className="ml-auto h-5 w-16 rounded-full" />

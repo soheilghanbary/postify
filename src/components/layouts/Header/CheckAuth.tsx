@@ -1,8 +1,4 @@
-import {
-  AddCircleHalfDotIcon,
-  Notification02Icon,
-} from '@/components/common/icons'
-import { ModeToggle } from '@/components/common/mode-toggle'
+import { User03Icon } from '@/components/common/icons'
 import { AuthModal } from '@/components/features/AuthModal'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -18,9 +14,9 @@ export const CheckAuth = async () => {
   return session ? (
     <div className="flex items-center gap-2">
       <Button asChild fullRounded>
-        <Link href={'/home'}>
-          <AddCircleHalfDotIcon />
-          Submit
+        <Link href={'/profile'}>
+          <User03Icon />
+          Profile
         </Link>
       </Button>
     </div>

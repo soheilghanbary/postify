@@ -1,32 +1,38 @@
 import {
-  AiWebBrowsingIcon,
   GithubIcon,
   Linkedin01Icon,
   NewTwitterIcon,
 } from '@/components/common/icons/social'
+import { ModeToggle } from '@/components/common/mode-toggle'
+import { buttonVariants } from '@/components/ui/button'
 
 export const SocialIcons = () => (
-  <div className="flex items-center gap-6">
+  <div className="flex items-center gap-1">
     <a
       target="_blank"
       rel="noreferrer"
       href="https://github.com/soheilghanbary"
+      className={buttonVariants({ size: 'icon', variant: 'ghost' })}
     >
       <GithubIcon className="size-5 text-foreground" />
     </a>
-    <a target="_blank" rel="noreferrer" href="https://x.com/soheil_prog">
+    <a
+      target="_blank"
+      rel="noreferrer"
+      href="https://x.com/soheil_prog"
+      className={buttonVariants({ size: 'icon', variant: 'ghost' })}
+    >
       <NewTwitterIcon className="size-5 text-foreground" />
-    </a>
-    <a target="_blank" rel="noreferrer" href="https://soheilghanbary.ir/en">
-      <AiWebBrowsingIcon className="size-5 text-foreground" />
     </a>
     <a
       target="_blank"
       rel="noreferrer"
       href="https://linkedin.com/in/soheilghanbary"
+      className={buttonVariants({ size: 'icon', variant: 'ghost' })}
     >
       <Linkedin01Icon className="size-5 text-foreground" />
     </a>
+    <ModeToggle />
   </div>
 )
 

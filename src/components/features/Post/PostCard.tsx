@@ -22,7 +22,7 @@ export const PostCard = ({
   hasVoted,
 }: PostProps) => {
   return (
-    <div className="flex border-b bg-card">
+    <div className="flex rounded-lg border bg-card">
       <PostVote postId={id} points={points} hasVoted={hasVoted} />
       <div className="flex flex-1 flex-col gap-2 p-4">
         <Link href={`/p/${id}`} shallow prefetch>
@@ -35,10 +35,6 @@ export const PostCard = ({
           />
         </Link>
         <div className="flex flex-wrap gap-2">
-          <div className="flex items-center gap-1 text-muted-foreground text-xs/6">
-            <Clock01Icon className="size-4" />
-            <span>{fromNow(createdAt)}</span>
-          </div>
           {url && (
             <a
               href={url}
@@ -47,14 +43,18 @@ export const PostCard = ({
               className="flex items-center gap-1 text-primary text-xs/6"
             >
               <Link02Icon className="size-4" />
-              <span className="line-clamp-1 w-64 overflow-hidden text-ellipsis">
+              <span className="line-clamp-1 w-52 overflow-hidden text-ellipsis">
                 {url}
               </span>
             </a>
           )}
         </div>
         <Separator />
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap gap-2">
+          <div className="flex items-center gap-1 text-muted-foreground text-xs/6">
+            <Clock01Icon className="size-4" />
+            <span>{fromNow(createdAt)}</span>
+          </div>
           <div className="flex items-center gap-1 text-muted-foreground text-xs/6">
             <User03Icon className="size-4" />
             <span>{user.name}</span>
