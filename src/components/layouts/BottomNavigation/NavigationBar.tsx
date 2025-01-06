@@ -23,7 +23,7 @@ export const NavigationBar = ({ isSigned }: Props) => {
         isSigned ? 'grid-cols-5' : 'grid-cols-3'
       )}
     >
-      <NavigationLink href="/home" label="Home" icon={Home01Icon} />
+      <NavigationLink href="/" label="Home" icon={Home01Icon} />
       <SearchFieldModal />
       {isSigned ? (
         <>

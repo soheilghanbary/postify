@@ -14,8 +14,8 @@ export const Header = () => {
     <header className="sticky top-0 z-10 border-border border-b bg-card">
       <nav className="container flex items-center justify-between gap-4 px-4 py-2 lg:py-4">
         <Logo />
-        <div className="hidden items-center md:flex">
-          <NavLink href="/home" icon={Home01Icon} label="Home" />
+        <div className="hidden items-center text-foreground/75 md:flex">
+          <NavLink href="/" icon={Home01Icon} label="Home" />
           <NavLink href="/trends" icon={Fire03Icon} label="Trends" />
           <SearchFieldModal />
           <NavLink href="/new" icon={AddCircleHalfDotIcon} label="Submit" />

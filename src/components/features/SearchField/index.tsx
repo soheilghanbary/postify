@@ -15,7 +15,7 @@ export const SearchField = ({ onClose }: SearchFieldProps) => {
 
   const searchHandle = () => {
     // setQuery(text.trim())
-    router.push(`/home?q=${text}`)
+    router.push(`/?q=${text}`)
     onClose()
   }
 

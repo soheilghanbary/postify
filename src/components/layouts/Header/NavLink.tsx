@@ -15,7 +15,7 @@ export const NavLink = ({ icon: Icon, label, href }: Props) => {
     <Link
       href={href}
       className={cn(
-        'flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-foreground/75 text-xs/5 transition-all hover:bg-muted/40 hover:text-foreground',
+        'flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-xs/5 transition-all hover:bg-muted/40',
         isActive && 'text-primary'
       )}
     >

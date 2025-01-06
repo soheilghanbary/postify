@@ -28,8 +28,7 @@ const SearchTrigger = (
   <button
     type="button"
     className={cn(
-      'flex flex-col items-center justify-center rounded-lg py-2 text-foreground/75 text-xs/5 transition-all hover:bg-muted/40 hover:text-foreground md:flex-row md:gap-2 md:px-4',
-      'gap-0.5 p-2 text-xs/5'
+      'flex flex-col items-center justify-center gap-0.5 rounded-lg p-2 text-xs/5 md:flex-row md:gap-2 md:hover:bg-muted/40'
       // isActive && 'text-primary'
     )}
   >
