@@ -25,7 +25,7 @@ export default async ({ params }: { params: { id: string } }) => {
     <>
       <ScrollToTop />
       {post ? (
-        <div className="mx-auto flex max-w-2xl flex-col gap-4 rounded-lg border bg-card p-4">
+        <div className="flex flex-col gap-4 rounded-lg bg-card p-4">
           <BackButton />
           <h1 className="motion-preset-fade font-extrabold text-2xl">
             {post.title}

@@ -38,11 +38,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         />
       </head>
       <body>
-        <Providers session={session}>
-          <Header />
-          <div className="container mx-auto min-h-screen p-4">{children}</div>
-          <Footer />
-        </Providers>
+        <Providers session={session}>{children}</Providers>
       </body>
     </html>
   )

@@ -1,7 +1,4 @@
-import {
-  AddCircleHalfDotIcon,
-  Notification02Icon,
-} from '@/components/common/icons'
+import { Notification02Icon } from '@/components/common/icons'
 import { ModeToggle } from '@/components/common/mode-toggle'
 import { AuthModal } from '@/components/features/AuthModal'
 import { Button } from '@/components/ui/button'
@@ -22,10 +19,7 @@ export const CheckAuth = async () => {
         <Notification02Icon />
       </Button>
       <Button asChild fullRounded>
-        <Link href={'/new'}>
-          <AddCircleHalfDotIcon />
-          Submit
-        </Link>
+        <Link href={'/home'}>Go to App</Link>
       </Button>
     </div>
   ) : (

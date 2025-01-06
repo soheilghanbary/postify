@@ -22,7 +22,7 @@ export const PostCard = ({
   hasVoted,
 }: PostProps) => {
   return (
-    <div className="flex rounded-lg border bg-card">
+    <div className="flex border-b bg-card">
       <PostVote postId={id} points={points} hasVoted={hasVoted} />
       <div className="flex flex-1 flex-col gap-2 p-4">
         <Link href={`/p/${id}`} shallow prefetch>

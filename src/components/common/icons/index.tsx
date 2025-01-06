@@ -327,3 +327,91 @@ export const Sun03Icon = (props: React.SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
+export const Home01Icon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={24}
+    height={24}
+    fill={'none'}
+    {...props}
+  >
+    <path
+      d="M15.0002 17C14.2007 17.6224 13.1504 18 12.0002 18C10.8499 18 9.79971 17.6224 9.00018 17"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M2.35157 13.2135C1.99855 10.9162 1.82204 9.76763 2.25635 8.74938C2.69065 7.73112 3.65421 7.03443 5.58132 5.64106L7.02117 4.6C9.41847 2.86667 10.6171 2 12.0002 2C13.3832 2 14.5819 2.86667 16.9792 4.6L18.419 5.64106C20.3462 7.03443 21.3097 7.73112 21.744 8.74938C22.1783 9.76763 22.0018 10.9162 21.6488 13.2135L21.3478 15.1724C20.8473 18.4289 20.5971 20.0572 19.4292 21.0286C18.2613 22 16.5538 22 13.139 22H10.8614C7.44652 22 5.73909 22 4.57118 21.0286C3.40327 20.0572 3.15305 18.4289 2.65261 15.1724L2.35157 13.2135Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
+export const Fire03Icon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={24}
+    height={24}
+    fill={'none'}
+    {...props}
+  >
+    <path
+      d="M12 21.5008C16.4183 21.5008 20 17.9191 20 13.5008C20 10.5397 18.3912 6.60684 16 4.33478L14 6.99915L10.5 2.49915C7 4.99915 4 9.59526 4 13.5008C4 17.9191 7.58172 21.5008 12 21.5008Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M12 18.4991C14.2091 18.4991 16 16.4844 16 13.9991C16 13.2081 15.8186 12.4648 15.5 11.8189L13.5 13.4991L10.5 9.49811C9.5 10.4981 8 12.1106 8 13.9991C8 16.4844 9.79086 18.4991 12 18.4991Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
+export const DashboardCircleIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={24}
+    height={24}
+    fill={'none'}
+    {...props}
+  >
+    <circle
+      cx="17.75"
+      cy="6.25"
+      r="4.25"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    />
+    <circle
+      cx="6.25"
+      cy="6.25"
+      r="4.25"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    />
+    <circle
+      cx="17.75"
+      cy="17.75"
+      r="4.25"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    />
+    <circle
+      cx="6.25"
+      cy="17.75"
+      r="4.25"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    />
+  </svg>
+)
