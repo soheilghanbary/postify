@@ -29,11 +29,11 @@ export const PostCard = ({
           <h2 className="line-clamp-1 font-semibold text-sm/6 md:text-base/normal">
             {title}
           </h2>
+          <div
+            className="line-clamp-2 text-foreground/85 text-xs/6 md:text-sm/7 [&_a]:font-bold [&_a]:text-primary [&_a]:underline [&_a]:decoration-wavy-offset-4 [&_a]:decoration-wavy [&_a]:underline-offset-4"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </Link>
-        <div
-          className="line-clamp-2 text-foreground/85 text-xs/6 md:text-sm/7 [&_a]:font-bold [&_a]:text-primary [&_a]:underline [&_a]:decoration-wavy-offset-4 [&_a]:decoration-wavy [&_a]:underline-offset-4"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
         <div className="flex flex-wrap gap-2">
           <div className="flex items-center gap-1 text-muted-foreground text-xs/6">
             <Clock01Icon className="size-4" />

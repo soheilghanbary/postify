@@ -70,8 +70,8 @@
   .text-editor {
     word-wrap: break-word;
     word-break: break-word;
-    white-space: normal; 
-    overflow-wrap: break-word; 
+    white-space: normal;
+    overflow-wrap: break-word;
     @apply px-4 py-2;
 
     * {
@@ -87,6 +87,13 @@
 
     ul {
       @apply list-disc pl-4;
+    }
+
+    img {
+      @apply my-2 mx-auto;
+      &.ProseMirror-selectednode {
+        @apply ring-2 ring-primary ring-offset-2 ring-offset-background;
+      }
     }
 
     a {
