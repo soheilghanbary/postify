@@ -1,10 +1,12 @@
 'use client'
 import { Search01Icon } from '@/components/common/icons'
 import { Input } from '@/components/ui/input'
+import { useRouter } from 'next/navigation'
 import { useQueryState } from 'nuqs'
 import { useState } from 'react'
 
 export const SearchField = () => {
+  const router = useRouter()
   const [query, setQuery] = useQueryState('q')
   const [text, setText] = useState(query || '')
 
@@ -19,7 +21,7 @@ export const SearchField = () => {
         onChange={(e) => setText(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            return text ? setQuery(text) : setQuery(null)
+            return text.trim() ? router.push(`/?q=${text}`) : setQuery(null)
           }
         }}
       />
