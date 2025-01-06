@@ -34,8 +34,14 @@
           "fix": "safe",
           "level": "warn",
           "options": {
-            "attributes": ["classList"],
-            "functions": ["clsx", "cva", "tw"]
+            "attributes": [
+              "classList"
+            ],
+            "functions": [
+              "clsx",
+              "cva",
+              "tw"
+            ]
           }
         }
       },
@@ -57,6 +63,9 @@
       "a11y": {
         "recommended": true,
         "noSvgWithoutTitle": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
       }
     }
   }

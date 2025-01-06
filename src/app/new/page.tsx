@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 
 export default function Page() {
   return (
-    <div className="mx-auto max-w-md">
+    <div className="mx-auto max-w-xl">
       <h1 className="mb-4 text-center font-bold text-lg">Submit a Post</h1>
       <AddPost />
     </div>

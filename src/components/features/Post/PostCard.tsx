@@ -30,23 +30,28 @@ export const PostCard = ({
             {title}
           </h2>
         </Link>
-        <p className="line-clamp-2 text-foreground/85 text-xs/5">{content}</p>
-        <div className="flex flex-wrap gap-4">
+        <div
+          className="line-clamp-2 text-foreground/85 text-xs/6 md:text-sm/7 [&_a]:font-bold [&_a]:text-primary [&_a]:underline [&_a]:decoration-wavy-offset-4 [&_a]:decoration-wavy [&_a]:underline-offset-4"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+        <div className="flex flex-wrap gap-2">
           <div className="flex items-center gap-1 text-muted-foreground text-xs/6">
             <Clock01Icon className="size-4" />
             <span>{fromNow(createdAt)}</span>
           </div>
-          <a
-            href={url}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-1 text-primary text-xs/6"
-          >
-            <Link02Icon className="size-4" />
-            <span className="line-clamp-1 w-64 overflow-hidden text-ellipsis">
-              {url}
-            </span>
-          </a>
+          {url && (
+            <a
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 text-primary text-xs/6"
+            >
+              <Link02Icon className="size-4" />
+              <span className="line-clamp-1 w-64 overflow-hidden text-ellipsis">
+                {url}
+              </span>
+            </a>
+          )}
         </div>
         <Separator />
         <div className="flex flex-wrap gap-6">
