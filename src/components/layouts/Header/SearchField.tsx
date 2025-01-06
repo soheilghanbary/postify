@@ -19,6 +19,7 @@ export const SearchField = () => {
         onChange={(e) => setText(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
+            window.scrollTo(0, 0)
             return text.trim() ? setQuery(text) : setQuery(null)
           }
         }}
