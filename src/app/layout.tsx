@@ -1,6 +1,5 @@
 import '@/assets/app.css'
-import { Footer } from '@/components/layouts/Footer'
-import { Header } from '@/components/layouts/Header'
+import BottomNavigation from '@/components/layouts/BottomNavigation'
 import Providers from '@/components/providers'
 import { siteConfig } from '@/config/site'
 import { auth } from '@/server/auth'
@@ -38,7 +37,10 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         />
       </head>
       <body>
-        <Providers session={session}>{children}</Providers>
+        <Providers session={session}>
+          {children}
+          <BottomNavigation />
+        </Providers>
       </body>
     </html>
   )

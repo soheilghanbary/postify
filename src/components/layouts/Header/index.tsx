@@ -8,12 +8,9 @@ export const Header = () => {
     <header className=" z-10 border-border border-b bg-card">
       <nav className="container flex items-center justify-between gap-4 px-4 py-2 lg:py-4">
         <Logo />
-        <Suspense>
-          <SearchField />
-        </Suspense>
-        <Suspense fallback={<CheckAuthLoader />}>
+        {/* <Suspense fallback={<CheckAuthLoader />}>
           <CheckAuth />
-        </Suspense>
+        </Suspense> */}
       </nav>
     </header>
   )

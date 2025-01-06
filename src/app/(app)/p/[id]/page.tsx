@@ -31,7 +31,7 @@ export default async ({ params }: { params: { id: string } }) => {
             {post.title}
           </h1>
           <div
-            className="motion-preset-fade whitespace-normal text-foreground/85 text-xs/6 md:text-sm/7 [&_*]:mb-2 [&_a]:font-bold [&_a]:text-primary [&_a]:underline [&_a]:decoration-wavy-offset-4 [&_a]:decoration-wavy [&_a]:underline-offset-4 [&_ul]:list-disc [&_ul]:pl-4"
+            className="motion-preset-fade whitespace-normal text-foreground/85 text-xs/6 md:text-sm/7 [&_*]:mb-2 [&_a]:font-bold [&_a]:text-primary [&_a]:underline [&_a]:decoration-wavy-offset-4 [&_a]:decoration-wavy [&_a]:underline-offset-4 [&_ul]:list-disc [&_ul]:pl-4 [&_ul_li]:mb-0"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
           <Separator />

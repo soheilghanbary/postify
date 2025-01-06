@@ -20,6 +20,7 @@ export const SearchField = () => {
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             window.scrollTo(0, 0)
+            e.currentTarget.blur()
             return text.trim() ? setQuery(text) : setQuery(null)
           }
         }}
