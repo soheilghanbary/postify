@@ -33,6 +33,7 @@ export const AddPost = () => {
   const { mutateAsync, isPending } = useAddPost()
 
   const onSubmit = handleSubmit(async (data) => {
+    console.log(data)
     await mutateAsync(data, {
       onSuccess: (data) => {
         toast.success(data.message)
@@ -44,10 +45,16 @@ export const AddPost = () => {
     <form onSubmit={onSubmit} className="grid gap-4">
       <TextField
         label="Title"
+        placeholder="any title"
         {...register('title')}
         error={errors.title?.message}
       />
-      <TextField label="URL" {...register('url')} error={errors.url?.message} />
+      <TextField
+        label="URL"
+        placeholder="http://"
+        {...register('url')}
+        error={errors.url?.message}
+      />
       <div className="grid gap-2 [&_label]:text-sm">
         <Label htmlFor="content">content</Label>
         <Controller

@@ -64,7 +64,7 @@
     @apply border-border outline-none scroll-smooth;
   }
   body {
-    @apply bg-muted/40 dark:bg-black text-foreground;
+    @apply bg-background dark:bg-black text-foreground;
   }
 
   .text-editor {

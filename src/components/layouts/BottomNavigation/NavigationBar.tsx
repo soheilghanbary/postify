@@ -1,13 +1,13 @@
 'use client'
 import {
   AddCircleHalfDotIcon,
-  Fire03Icon,
   Home01Icon,
   Login02Icon,
   Notification02Icon,
   User03Icon,
 } from '@/components/common/icons'
 import { AuthModal } from '@/components/features/AuthModal'
+import { SearchFieldModal } from '@/components/features/SearchField/SearchFieldModal'
 import { cn } from '@/lib/utils'
 import { NavigationLink } from './NavigationLink'
 
@@ -24,7 +24,7 @@ export const NavigationBar = ({ isSigned }: Props) => {
       )}
     >
       <NavigationLink href="/home" label="Home" icon={Home01Icon} />
-      <NavigationLink href="/trends" label="Trends" icon={Fire03Icon} />
+      <SearchFieldModal />
       {isSigned ? (
         <>
           <NavigationLink href="/new" label="New" icon={AddCircleHalfDotIcon} />

@@ -5,7 +5,6 @@ import { Suspense } from 'react'
 export default function Home() {
   return (
     <>
-      <FilterPostList />
       <Suspense>
         <AllPosts />
       </Suspense>

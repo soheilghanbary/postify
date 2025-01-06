@@ -46,7 +46,6 @@ export const useVotePost = () => {
       const res = await api.posts.vote.$post({ json: data });
       return await res.json();
     },
-    // Optimistic update
     onMutate: async (data) => {
       // Cancel any outgoing refetches to avoid overwriting optimistic update
       await queryClient.cancelQueries({ queryKey: ['posts', query] });

@@ -3,14 +3,11 @@ import {
   Fire03Icon,
   Home01Icon,
   Notification02Icon,
-  Search01Icon,
-  User03Icon,
 } from '@/components/common/icons'
-import { Button } from '@/components/ui/button'
+import { SearchFieldModal } from '@/components/features/SearchField/SearchFieldModal'
+import { CheckAuth } from './CheckAuth'
 import { Logo } from './Logo'
 import { NavLink } from './NavLink'
-import { CheckAuth } from './CheckAuth'
-import { SearchFieldModal } from './SearchField'
 
 export const Header = () => {
   return (

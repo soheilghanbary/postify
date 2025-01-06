@@ -13,7 +13,7 @@ export const CheckAuth = async () => {
   const session = await auth()
   return session ? (
     <div className="flex items-center gap-2">
-      <Button asChild fullRounded>
+      <Button asChild fullRounded className="[&_svg]:size-5">
         <Link href={'/profile'}>
           <User03Icon />
           Profile

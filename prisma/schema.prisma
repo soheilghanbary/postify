@@ -64,7 +64,7 @@ model User {
 model Post {
   id            String    @id @default(cuid())
   title         String
-  url           String    @unique
+  url           String?   @default("")
   content       String
   userId        String
   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
